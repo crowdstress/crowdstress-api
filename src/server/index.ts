@@ -38,7 +38,7 @@ app.get('/project/:id', authMiddleware, loadProject);
 
 app.get('/projects', authMiddleware, fetchProjects);
 
-app.get('/thumbnail/:id', authMiddleware, getThumbnail);
+app.get('/thumbnails/:id', authMiddleware, getThumbnail);
 
 app.use('/math', authMiddleware, mathService);
 
