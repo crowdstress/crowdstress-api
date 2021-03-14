@@ -1,4 +1,3 @@
-import { pool } from '@/db';
 import {
   GetProjectByIdArgs,
   GetProjectByIdReply,
@@ -9,6 +8,7 @@ import {
   GetProjectByUserArgs,
   GetProjectByUserReply
 } from '@/db/projects';
+import { pool } from '@/modules/db';
 import { logger } from '@/utils/logger';
 
 export const createProject = async ({ name, owner, data }: CreateProjectArgs): Promise<CreateProjectReply | null> => {

@@ -3,7 +3,10 @@ import http from 'http';
 import { Request } from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
+import { MATH_SERVICE_ENDPOINT } from '@/config';
+
 export const mathService = createProxyMiddleware({
+  changeOrigin: true,
   logLevel: 'error',
   onProxyReq: (proxyReq: http.ClientRequest, req: Request) => {
     if (req.body) {
@@ -14,5 +17,5 @@ export const mathService = createProxyMiddleware({
     }
   },
   pathRewrite: { '^/math': '' },
-  target: 'http://127.0.0.1:5000',
+  target: MATH_SERVICE_ENDPOINT,
 });

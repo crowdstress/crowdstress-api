@@ -1,5 +1,5 @@
-import { pool } from '@/db';
 import { CreateUserArgs, CreateUserReply, GetUserArgs, GetUserReply } from '@/db/users';
+import { pool } from '@/modules/db';
 import { logger } from '@/utils/logger';
 
 export const createUser = async ({ email, hash, salt }: CreateUserArgs): Promise<CreateUserReply | null> => {

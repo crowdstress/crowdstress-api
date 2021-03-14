@@ -3,8 +3,8 @@ WORKDIR /app
 ADD . .
 RUN npm install && npm run build
 
-FROM node:alpine AS bundler
+FROM node:slim AS bundler
 WORKDIR /app
-COPY --from=builder /app/build .
-COPY --from=builder /app/node_modules .
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/build ./build
 RUN npm install -g pm2

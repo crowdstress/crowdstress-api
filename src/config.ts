@@ -2,6 +2,15 @@
 //   APP_PORT,
 //   SESSIONS_SECRET,
 // } = process.env;
+
+export const IS_DEV = process.env.NODE_ENV !== 'production';
+
+/* Services */
+export const DB_SERVICE_ENDPOINT = IS_DEV ? 'localhost' : 'db';
+export const MATH_SERVICE_ENDPOINT = IS_DEV ? 'http://localhost:5000' : 'http://math:5000';
+export const MINIO_SERVICE_ENDPOINT = IS_DEV ? 'localhost' : 'minio';
+export const REDIS_SERVICE_ENDPOINT = IS_DEV ? 'localhost' : 'redis';
+
 export const APP_PORT = 8000;
 export const SESSIONS_SECRET = 'lol';
 export const SALT_ROUNDS = 10;
