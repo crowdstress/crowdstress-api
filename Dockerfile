@@ -1,7 +1,8 @@
 FROM node:slim AS builder
 WORKDIR /app
 ADD . .
-RUN npm install && npm run build
+RUN npm install
+RUN npm run build
 
 FROM node:slim AS bundler
 WORKDIR /app
