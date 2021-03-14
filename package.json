@@ -1,0 +1,75 @@
+{
+  "name": "@crowdstress/api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "build/**/*"
+  ],
+  "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "canvas": "^2.7.0",
+    "connect-redis": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "http-proxy-middleware": "^1.0.6",
+    "jimp": "^0.16.1",
+    "imagemin": "^7.0.1",
+    "imagemin-pngquant": "^9.0.2",
+    "minio": "^7.0.18",
+    "node-pg-migrate": "^5.9.0",
+    "nodemon": "^2.0.6",
+    "npm": "^7.6.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.5.1",
+    "redis": "^3.0.2",
+    "remove": "^0.1.5",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.0.3",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/connect-redis": "0.0.16",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.8",
+    "@types/express-session": "^1.17.3",
+    "@types/imagemin": "^7.0.0",
+    "@types/localtunnel": "^2.0.0",
+    "@types/minio": "^7.0.7",
+    "@types/node-pg-migrate": "^2.3.1",
+    "@types/node-schedule": "^1.3.1",
+    "@types/passport": "^1.0.5",
+    "@types/passport-local": "^1.0.33",
+    "@types/pg": "^7.14.7",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.11.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-typescript-sort-keys": "^1.5.0",
+    "eslint-plugin-unused-imports": "^1.1.0",
+    "tscpaths": "0.0.9"
+  },
+  "scripts": {
+    "start": "ts-node -r tsconfig-paths/register src/app.ts",
+    "start:watch": "nodemon",
+    "lint": "eslint --no-fix ./src",
+    "build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./build",
+    "migrate": "DATABASE_URL=postgres://docker:docker@127.0.0.1:5432/docker node-pg-migrate -f ./src/db/config.json -m ./src/migrations --tsconfig ./tsconfig.json"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  },
+  "author": "Evgenii Kozlov",
+  "license": "MIT"
+}
